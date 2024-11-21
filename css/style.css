@@ -1,0 +1,149 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.week-display {
+    font-weight: bold;
+    color: #495057;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.week-display {
+    font-weight: bold;
+    color: #495057;
+}
+
+.day-row {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.day-row:last-child {
+    border-bottom: none;
+}
+
+.day-label {
+    flex: 1;
+    color: #555;
+}
+
+.date-display {
+    flex: 1;
+    color: #777;
+    font-size: 14px;
+}
+
+.checkbox-wrapper {
+    flex: 0 0 60px;
+    text-align: right;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.submit-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background: #0056b3;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+}
+
+.company-header {
+    font-size: 17px;
+    color: #6ed3b3;
+    /* border-bottom: 1px solid #eee; */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;  /* 이미 있는 속성 */
+    align-items: center;  /* 이미 있는 속성 */
+    gap: 8px;  /* 로고와 텍스트 사이 간격 */
+    line-height: 1;  /* 추가: 텍스트 줄높이 조정 */
+}
+
+.company-logo {
+    width: 20px;    /* 로고 크기 조절 */
+    height: 20px;   /* 로고 크기 조절 */
+    object-fit: contain;  /* 이미지 비율 유지 */
+    display: block;  /* 추가: 이미지 정렬 개선 */
+    flex-shrink: 0;  /* 추가: 로고 크기 고정 */
+}
+
+.vacation-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+ }
+ 
+ .vacation-button:hover {
+    background: #fa5252;
+ }
+ 
+ .vacation-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+ }

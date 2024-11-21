@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주간 출근 일정</title>
+    <title>열한시 키퍼 주간 출근 일정</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>주간 출근 일정 등록</h1>
+    <div class="container">
+        <div class= "company-header">
+            <img src= "images/eleven_circle.png" alt="회사 로고" class= "company-logo">
+            열한시 키퍼
+        </div>
+        <h1>📅 주간 출근 일정 등록</h1>
+        
+        <div class="week-display" id="weekDisplay">
+            <span class="week-display"></span>
+        </div>
+
+        <form id="scheduleForm">
+            <div id="daysContainer">
+                <!-- 요일은 JavaScript로 동적 생성됩니다 -->
+            </div>
+            <button type="submit" class="submit-button">일정 등록하기</button>
+            <button type="button" class="vacation-button" id="vacationButton">다음주는 일하지 않을래요 (휴무 신청)</button>
+        </form>
+
+        <div class="success-message">
+            일정이 성공적으로 등록되었습니다!
+        </div>
+        <div class="vacation-message">
+            휴무가 성공적으로 등록되었습니다.
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
