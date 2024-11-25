@@ -9,4 +9,4 @@ window.ENV = {
 
 // dist/env.js 파일로 저장
 fs.writeFileSync("./js/env.js", envContent, "utf8");
-console.log("Netlify 환경변수 기반으로 env.js 생성 완료!");
+console.log("env.js 파일이 생성되었습니다!");

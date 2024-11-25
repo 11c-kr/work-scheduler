@@ -1,6 +1,3 @@
-[build]
-command = "node js/generate-env.js && npm run build"
-
 [[redirects]]
 from = "/*"
 to = "/index.html"
