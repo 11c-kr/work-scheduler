@@ -8,5 +8,5 @@ window.ENV = {
 `;
 
 // dist/env.js 파일로 저장
-fs.writeFileSync("./dist/env.js", envContent, "utf8");
+fs.writeFileSync("/opt/build/repo/env.js", envContent, "utf8");
 console.log("Netlify 환경변수 기반으로 env.js 생성 완료!");
