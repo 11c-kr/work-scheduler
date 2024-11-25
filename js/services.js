@@ -1,9 +1,5 @@
 // auth.js
-import { config } from './config.js';
 import { showContent, showError, createDayRows } from './uiController.js';
-
-// 액세스키 가져오기
-const accessKey = config.accessKey;
 
 export async function fetchMemberKeeperInfo() {
     // URL에서 토큰 가져오기
@@ -21,7 +17,7 @@ export async function fetchMemberKeeperInfo() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessKey}`,
+                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
             },
@@ -59,7 +55,7 @@ export async function fetchInsertWorkSchedules(bodyData) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessKey}`,
+                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
                 // 'Access-Control-Allow-Origin': 'http://localhost:8080'
@@ -103,7 +99,7 @@ export async function fetchInsertVacationSchedules(bodyData) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessKey}`,
+                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
                 // 'Access-Control-Allow-Origin': 'https://data-api.11h.kr'
