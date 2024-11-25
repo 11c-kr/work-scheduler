@@ -147,3 +147,43 @@ input[type="checkbox"] {
     display: none;
     text-align: center;
  }
+
+.error-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-content h1 {
+    color: #ff4444;
+    margin-bottom: 1rem;
+}
+
+.error-content p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.select-all-row {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;  /* 오른쪽 정렬 */
+    padding-right: 13px;  /* 오른쪽 여백 추가 */
+}
+
+.select-all-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.select-all-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.select-all-label span {
+    font-weight: bold;
+}
