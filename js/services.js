@@ -17,15 +17,15 @@ export async function fetchMemberKeeperInfo() {
     }
 
     try {
-        const response = await fetch('https://data-api.11h.kr/GetMemberKeeperInfo', {
+        const response = await fetch('http://localhost:8080/GetMemberKeeperInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessKey}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
-                'Access-Control-Allow-Origin': 'https://data-api.11h.kr'
             },
+            credentials: 'include',  // 쿠키를 포함하려면 필요
             body: JSON.stringify({
                 token: token
             })
@@ -55,14 +55,14 @@ export async function fetchMemberKeeperInfo() {
 // 일정 등록 API
 export async function fetchInsertWorkSchedules(bodyData) {
     try {
-        const response = await fetch('https://data-api.11h.kr/InsertWorkSchedules', {
+        const response = await fetch('http://localhost:8080/InsertWorkSchedules', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessKey}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
-                'Access-Control-Allow-Origin': 'https://data-api.11h.kr'
+                'Access-Control-Allow-Origin': 'http://localhost:8080'
             },
             body: JSON.stringify(bodyData)
         }).catch(error => {
