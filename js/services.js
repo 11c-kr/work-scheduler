@@ -1,8 +1,8 @@
 // auth.js
 import { showContent, showError, createDayRows } from './uiController.js';
 
-accessKey = window.ENV.ACCESS_KEY
-endPoint = window.ENV.PROD_END_POINT
+const accessKey = window.ENV.ACCESS_KEY
+const endPoint = window.ENV.PROD_END_POINT
 
 export async function fetchMemberKeeperInfo() {
     // URL에서 토큰 가져오기
