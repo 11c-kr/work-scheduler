@@ -1,6 +1,9 @@
 // auth.js
 import { showContent, showError, createDayRows } from './uiController.js';
 
+accessKey = window.ENV.ACCESS_KEY
+endPoint = window.ENV.PROD_END_POINT
+
 export async function fetchMemberKeeperInfo() {
     // URL에서 토큰 가져오기
     const urlParams = new URLSearchParams(window.location.search);
@@ -13,11 +16,11 @@ export async function fetchMemberKeeperInfo() {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:8080/GetMemberKeeperInfo', {
+        const response = await fetch(`${endPoint}/GetMemberKeeperInfo`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
+                'Authorization': `Bearer ${accessKey}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
             },
@@ -51,14 +54,13 @@ export async function fetchMemberKeeperInfo() {
 // 일정 등록 API
 export async function fetchInsertWorkSchedules(bodyData) {
     try {
-        const response = await fetch('http://127.0.0.1:8080/InsertWorkSchedules', {
+        const response = await fetch(`${endPoint}/InsertWorkSchedules`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
+                'Authorization': `Bearer ${accessKey}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
-                // 'Access-Control-Allow-Origin': 'http://localhost:8080'
             },
             body: JSON.stringify(bodyData)
         }).catch(error => {
@@ -95,14 +97,13 @@ export async function fetchInsertWorkSchedules(bodyData) {
 // 휴무 신청 API (UI만 다름)
 export async function fetchInsertVacationSchedules(bodyData) {
     try {
-        const response = await fetch('http://127.0.0.1:8080/InsertWorkSchedules', {
+        const response = await fetch(`${endPoint}/InsertWorkSchedules`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${window.ENV.ACCESS_KEY}`,
+                'Authorization': `Bearer ${accessKey}`,
                 // CORS 헤더 추가
                 'Accept': 'application/json',
-                // 'Access-Control-Allow-Origin': 'https://data-api.11h.kr'
             },
             body: JSON.stringify(bodyData)
         }).catch(error => {
