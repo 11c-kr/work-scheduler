@@ -1,6 +1,9 @@
 // main.js
 import * as services from "./services.js";
 
+// 현재 요일 확인
+const currentDay = new Date().getDay(); 
+
 // 1. 페이지가 완전히 로드된 후에 코드를 실행하도록 보장
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Script loaded!');
@@ -29,7 +32,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // 최소 하나의 날짜가 선택되었는지 확인
         if (selectedDays.length === 0) {
-            alert('최소 하나의 출근일을 선택해주세요.');
+            alert('최소 하나의 일정을 선택해주세요.');
+            return;
+        }
+
+        // 매주 일요일 제출 불가
+        if (currentDay === 6) {
+            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다.');
             return;
         }
 
@@ -90,12 +99,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (checkedDays.length > 0) {
-            alert('휴무 신청 시에는 출근일을 선택하지 않아야 합니다.');
+            alert('체크하신 일정이 있습니다. 체크박스에 체크를 해제해 주세요.');
+            return;
+        }
+
+        // 매주 일요일 제출 불가
+        if (currentDay === 6) {
+            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다.');
             return;
         }
 
         // 확인 팝업 표시
-        if (confirm('다음 주 휴무를 신청하시겠습니까?')) {
+        if (confirm('다음 주는 키퍼 예정이 없으신가요?')) {
             // 출근스케줄입력 API body값 만들기 
             const bodyData = {
                 member_keeper_id: memberKeeperId,
