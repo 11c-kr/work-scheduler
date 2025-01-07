@@ -32,11 +32,12 @@ function getNextMonday(date) {
     return nextMonday;
 }
 
-// 4. 날짜를 "월월 일일" 형식으로 변환하는 함수
+// 4. 날짜를 "연-월-일" 형식으로 변환하는 함수
 function formatDate(date) {
-    const month = date.getMonth() + 1; // getMonth()는 0~11 반환
-    const day = date.getDate();
-    return `${month}월 ${day}일`;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // 두 자리로 표시
+    const day = String(date.getDate()).padStart(2, '0'); // 두 자리로 표시
+    return `${year}-${month}-${day}`;
 }
 
 // 5. 요일 목록을 생성하는 메인 함수
@@ -46,8 +47,8 @@ export function createDayRows() {
     // 다음 주 월요일 날짜 가져오기
     const startDate = getNextMonday(sendDate);
     // 요일 이름 배열
-    const dayNames = ['월', '화', '수', '목', '금', '토', '일'];
-    
+    const dayNames = ['월 (Mon)', '화 (Tue)', '수 (Wed)', '목 (Thu)', '금 (Fri)', '토 (Sat)', '일 (Sun)'];
+
     // 6. 주간 표시 업데이트 (예: 11월 27일 - 12월 3일)
     const endDate = new Date(startDate);
     // 시작일로부터 6일 후 설정 (일요일)
@@ -63,10 +64,14 @@ export function createDayRows() {
     const selectAllDiv = document.createElement('div');
     selectAllDiv.className = 'select-all-row';
     selectAllDiv.innerHTML = `
-        <label class="select-all-label">
-            <span>전체 선택</span>
-            <input type="checkbox" id="selectAll">
-        </label>
+       <div class="select-all-wrapper">
+            <span class="weekday-label">요일 (weekday)</span>
+            <span class="date-format-label">yyyy-mm-dd</span>
+            <label class="select-all-label">
+                <span>전체 선택 (All)</span>
+                <input type="checkbox" id="selectAll">
+            </label>
+        </div>
     `;
     container.appendChild(selectAllDiv);
 
@@ -90,7 +95,7 @@ export function createDayRows() {
         div.className = 'day-row';
         // HTML 내용 설정
         div.innerHTML = `
-            <span class="day-label">${dayNames[i]}요일</span>
+            <span class="day-label">${dayNames[i]}</span>
             <span class="date-display">${formatDate(date)}</span>
             <span class="checkbox-wrapper">
                 <input type="checkbox" name="workDays" 

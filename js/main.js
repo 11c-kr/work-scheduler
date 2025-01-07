@@ -32,17 +32,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // 최소 하나의 날짜가 선택되었는지 확인
         if (selectedDays.length === 0) {
-            alert('최소 하나의 일정을 선택해주세요.');
+            alert('최소 하나의 일정을 선택해주세요. Please select at least one schedule.');
             return;
         }
 
         // 매주 일요일 제출 불가
         if (currentDay === 6) {
-            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다.');
+            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다. The submission period has ended. You cannot register or modify schedules.');
             return;
         }
 
-        if (confirm("다음 주 일정을 등록하시겠습니까?")) {
+        if (confirm("다음 주 일정을 등록하시겠습니까? Would you like to register the schedule for next week?")) {
             // 출근스케줄입력 API body값 만들기 
             const bodyData = {
                 member_keeper_id: memberKeeperId,
@@ -99,18 +99,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (checkedDays.length > 0) {
-            alert('체크하신 일정이 있습니다. 체크박스에 체크를 해제해 주세요.');
+            alert('체크하신 일정이 있습니다. 체크박스에 체크를 해제해 주세요. You have selected a schedule. Please uncheck the checkbox.');
             return;
         }
 
         // 매주 일요일 제출 불가
         if (currentDay === 6) {
-            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다.');
+            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다. The submission period has ended. You cannot register or modify schedules.');
             return;
         }
 
         // 확인 팝업 표시
-        if (confirm('다음 주는 키퍼 예정이 없으신가요?')) {
+        if (confirm('다음 주는 키퍼 예정이 없으신가요? Do you have no work schedule planned for next week?')) {
             // 출근스케줄입력 API body값 만들기 
             const bodyData = {
                 member_keeper_id: memberKeeperId,
