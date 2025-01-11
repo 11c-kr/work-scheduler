@@ -3,6 +3,7 @@ import * as services from "./services.js";
 
 // 현재 요일 확인
 const currentDay = new Date().getDay(); 
+console.log(currentDay);
 
 // 1. 페이지가 완전히 로드된 후에 코드를 실행하도록 보장
 document.addEventListener('DOMContentLoaded', async () => {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // 매주 일요일 제출 불가
-        if (currentDay === 6) {
+        if (currentDay === 7) {
             alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다. The submission period has ended. You cannot register or modify schedules.');
             return;
         }
