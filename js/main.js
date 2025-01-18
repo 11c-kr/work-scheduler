@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // 매주 일요일 제출 불가
-        if (currentDay === 7) {
-            alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다. The submission period has ended. You cannot register or modify schedules.');
-            return;
-        }
+        // // 매주 일요일 제출 불가
+        // if (currentDay === 7) {
+        //     alert('제출 기간이 지났습니다. 일정을 등록하거나 수정할 수 없습니다. The submission period has ended. You cannot register or modify schedules.');
+        //     return;
+        // }
 
         if (confirm("다음 주 일정을 등록하시겠습니까? Would you like to register the schedule for next week?")) {
             // 출근스케줄입력 API body값 만들기 
