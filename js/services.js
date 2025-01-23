@@ -10,7 +10,7 @@ export async function fetchMemberKeeperInfo() {
     const token = urlParams.get('token');
 
     if (!token) {
-        console.log('토큰이 없습니다!');
+        alert('토큰이 없습니다!');
         showError();
         return;
     }
