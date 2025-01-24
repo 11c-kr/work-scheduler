@@ -4,6 +4,17 @@ import { showContent, showError, createDayRows } from './uiController.js';
 const accessKey = window.ENV.ACCESS_KEY
 const endPoint = window.ENV.PROD_END_POINT
 
+window.WHATAP_CONFIG = {
+    projectAccessKey: 'x60591g82bd6d-xqmmt5ui2etak-xsmdq95kek44t',
+    pcode: '43276',
+    sampleRate: 100,
+    ignoreOrigins: [],
+};
+// 와탭 스크립트 로드
+const script = document.createElement('script');
+script.src = 'https://repo.whatap-browser-agent.io/rum/prod/';
+document.head.appendChild(script);
+
 export async function fetchMemberKeeperInfo() {
     // URL에서 토큰 가져오기
     const urlParams = new URLSearchParams(window.location.search);
@@ -33,6 +44,7 @@ export async function fetchMemberKeeperInfo() {
             console.log('서버와의 통신 실패:', error);
             throw new Error('서버와의 통신이 실패했습니다.');
         });
+        // console.log(response);
 
         const data = await response.json(); // 응답 데이터 저장
         const result = data['result'];
@@ -40,16 +52,15 @@ export async function fetchMemberKeeperInfo() {
         if (result === 'SUCCESS') {
             showContent(); // 데이터 로드 성공시 컨텐츠 표시
             createDayRows();
+            console.log("The token has been successfully identified!");
             return data;    
         } else {
             alert(`토큰이 유효하지 않습니다! ${error}`);
-            showContent(); // 데이터 로드 성공시 컨텐츠 표시
-            createDayRows();
-            return data;
+            showError();
         }
     } catch (error) {
-        alert(`에러 발생! ${error}`);
-        showError();    
+        alert(`토큰이 유효하지 않습니다! ${error}`);
+        showError();
     }
 }
 
