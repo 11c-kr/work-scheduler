@@ -27,7 +27,7 @@ export async function fetchMemberKeeperInfo() {
     }
 
     try {
-        const response = await fetch(`${endPoint}/GetMemberKeeperInfo`, {
+        const response = await fetch(`${endPoint}/GetScheduleToken`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export async function fetchMemberKeeperInfo() {
             return data;    
         } else {
             alert(`토큰이 유효하지 않습니다! ${error}`);
-            showError();
+            showError(); 
         }
     } catch (error) {
         alert(`토큰이 유효하지 않습니다! ${error}`);
