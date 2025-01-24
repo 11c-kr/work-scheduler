@@ -46,8 +46,11 @@ export async function fetchMemberKeeperInfo() {
             showError();    
         }
     } catch (error) {
-        console.error('에러 발생:', error);
-        showError();
+        alert();
+        alert(`토큰이 유효하지 않습니다! ${error}`);
+        showContent(); // 데이터 로드 성공시 컨텐츠 표시
+        createDayRows();
+        return data;    
     }
 }
 
