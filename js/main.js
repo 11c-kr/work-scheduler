@@ -5,6 +5,9 @@ import * as services from "./services.js";
 const currentDay = new Date().getDay(); 
 console.log(currentDay);
 
+const now = new Date();
+console.log(now);
+
 // 1. 페이지가 완전히 로드된 후에 코드를 실행하도록 보장
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Script loaded!');
