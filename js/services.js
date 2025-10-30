@@ -39,27 +39,24 @@ export async function fetchMemberKeeperInfo() {
             body: JSON.stringify({
                 token: token
             })
-        }).catch(error => {
-            // fetch 자체가 실패한 경우 (서버 연결 실패, CORS 등)
-            console.log('서버와의 통신 실패:', error);
-            throw new Error('서버와의 통신이 실패했습니다.');
-        });
+        })
         // console.log(response);
 
         const data = await response.json(); // 응답 데이터 저장
         const result = data['result'];
+        const message = data['message'];
 
         if (result === 'SUCCESS') {
             showContent(); // 데이터 로드 성공시 컨텐츠 표시
             createDayRows();
             console.log("The token has been successfully identified!");
-            return data;    
+            return data;
         } else {
-            alert(`토큰이 유효하지 않습니다! ${error}`);
+            alert(`토큰이 유효하지 않습니다! ${message}`);
             showError(); 
         }
     } catch (error) {
-        alert(`토큰이 유효하지 않습니다! ${error}`);
+        alert(`서버와의 통신이 실패했습니다! ${error}`);
         showError();
     }
 }
